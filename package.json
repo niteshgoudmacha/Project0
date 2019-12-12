@@ -9,7 +9,7 @@
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "",
+  "author": "Nitesh Goud",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
