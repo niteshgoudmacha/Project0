@@ -8,11 +8,12 @@ const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
 
-    app.get('/api/feedback', (req, res) => {
+    app.get('/api/surveys', (req, res) => {
         res.send('Thanks for your feedback');
     });
 
     app.post('/api/surveys', requireLogin , requireCredits , async (req, res) => {
+        
         const { title, subject, body, recipients } = req.body;
 
         const survey = new Survey({

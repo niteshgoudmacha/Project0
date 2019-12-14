@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const bodyParser = require('body-parser');
 require('./models/users');
 require('./models/Survey');
 require('./services/passport');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const bodyParser = require('body-parser');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true});
 const app = express();

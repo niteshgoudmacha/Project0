@@ -13,5 +13,5 @@ const surveySchema =  new Schema({
     dateSent: Date,
     lastResponded: Date
 });
-
+    
 mongoose.model('surveys', surveySchema);
