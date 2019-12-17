@@ -30,10 +30,10 @@ if(process.env.NODE_ENV === 'producttion') {
     app.use(express.static('/build'));
     
     // express will serve index.html if it its not recognized by route
-    // const path = require('path');
-    // app.get('*', (req, res) => {
-    //     res.sendFile(__dirname, 'build', 'index.html');
-    // });
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(__dirname, 'build', 'index.html');
+    });
 }
 
 const PORT = process.env.PORT || 5000;
