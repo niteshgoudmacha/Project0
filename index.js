@@ -16,7 +16,7 @@ const app = express();
 app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 app.use(cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 100,
     keys: [keys.cookieKeys]
@@ -29,7 +29,7 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 require('./routes/surveyRoutes')(app);
 
-if(process.env.NODE_ENV === 'producttion') {
+if(process.env.NODE_ENV === 'production') {
     // Express will serve prodution assests
     app.use(express.static(path.join(__dirname, 'build')));
     
