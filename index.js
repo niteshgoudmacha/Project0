@@ -15,7 +15,7 @@ const app = express();
 
 app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(bodyParser.json());
-app.use(express.static(__dirname));
+
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 100,
