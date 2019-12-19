@@ -1,4 +1,5 @@
 const express = require('express');
+const favicon = require('express-favicon');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./models/users');
