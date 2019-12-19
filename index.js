@@ -7,12 +7,15 @@ require('./services/passport');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true});
 const app = express();
 
+app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(bodyParser.json());
-
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'build')));
 app.use(cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 100,
     keys: [keys.cookieKeys]
@@ -27,12 +30,12 @@ require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'producttion') {
     // Express will serve prodution assests
-    app.use(express.static('build'));
+    app.use(express.static(path.join(__dirname, 'build')));
     
     // express will serve index.html if it its not recognized by route
-    const path = require('path');
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
 }
 
