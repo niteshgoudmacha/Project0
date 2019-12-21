@@ -13,7 +13,7 @@ const path = require('path');
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true});
 const app = express();
 
-app.use(favicon(__dirname + '/build/favicon.ico'));
+// app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(bodyParser.json());
 
 // app.use(express.static(path.join(__dirname, 'build')));
