@@ -1,11 +1,16 @@
 const sendgrid = require('sendgrid');
 const helper = sendgrid.mail;
 const keys = require('../config/keys');
+const mongoose = require('mongoose');
+const requireLogin = require('../middlewares/requireLogin');
+
+const User = mongoose.model('users');
+
 
 class Mailer extends helper.Mail {
     constructor({ subject, recipients }, content ) {
         super();
-
+        
         this.sgApi = sendgrid(keys.sendGridKey);
         this.from_email = new helper.Email('noreply@bulk-emailer.com');
         this.subject =   subject;
