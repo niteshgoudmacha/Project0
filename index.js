@@ -43,6 +43,3 @@ if(process.env.NODE_ENV === 'production') {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
 
-// clientID  365780831439-2e9f3ve3aeu5gpeci377hvd3815ktrqp.apps.googleusercontent.com
-// clientSecretID 6pXS0_LKu6K2_i8oJ-sOOqTg
-// "heroku-postbulid": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
